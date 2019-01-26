@@ -1,0 +1,89 @@
+extends layout.pug
+include components/header.pug
+
+block header
+  +header
+
+block content
+  section(class='info-pages')
+    nav
+       a(href='/legal/tos') Terms of Service
+       a(href='/legal/privacy') Privacy Policy
+       a(href='/legal/copyright' class='active') Copyright Policy
+    div(class='info-wrapper terms')
+      h2.center Copyright & Trademark Policy
+      p
+        strong Repeat Infringer Policy
+      p.
+       In accordance with the Digital Millennium Copyright Act
+       (<strong>"DMCA"</strong>) and other applicable law,
+       Dendrite Corp. has adopted a policy of terminating,
+       in appropriate circumstances as determined by Dendrite,
+       users or account holders who are deemed to be repeat
+       infringers of the copyrights, trademark rights or other
+       intellectual property rights of others.  Dendrite may also
+       at its sole discretion limit access to the Haystack website
+       and other online products and services
+       (<strong>“Services”</strong>) and/or update, transfer,
+       suspend or terminate the accounts of any users who infringe
+       the intellectual property rights of others, whether or
+       not there is any repeat infringement.
+      p
+       strong Copyright Complaints
+      p.
+       If you believe that anything in the Services infringes any copyright
+       that you own or control, you may file a notification of such
+       infringement with our Designated Agent as follows:
+      table.dendrite
+       tbody
+         tr
+           td.title
+             | Name & Address
+             br
+             | of Designated Agent
+           td
+             strong
+               | The Dendrite Corporation
+               br
+               | 544 Park Ave., Suite 331
+               br
+               | Brooklyn, NY 11205
+         tr
+           td.title Telephone
+           td
+             strong +1 (718) 576-1770
+         tr
+           td.title Facsimile
+           td
+             strong N/A
+         tr
+           td.title Email
+           td
+             strong andrew@haystack.im
+      p
+       | Please see 17 U.S.C. §512(c)(3) for the requirements of a proper notification.
+       | You should note that under 17 U.S.C. §512(f), if you knowingly
+       | misrepresent that material or activity is infringing, you may be liable
+       | for any damages, including costs and attorneys' fees, incurred
+       | by us or our users.  If you are unsure whether the material or
+       | activity you are reporting is infringing, you may wish to contact
+       | an attorney before filing a notification with us.
+      p
+       strong Trademark Complaints
+      p
+       | If you believe that anything in the Services infringes any trademark
+       | rights that you own or control, you may let us know by sending
+       | a notification of such infringement to our Designated Agent using
+       | the contact information stated above.  In order to investigate
+       | any allegations of trademark infringement, please include in your
+       | notification the following information:
+      ul(class='doc-list')
+       li Your first and last name
+       li Title (if applicable)
+       li Company name (if applicable)
+       li Address
+       li Telephone
+       li Facsimile
+       li Email (must be from your company’s domain)
+       li Description and location in the Services of the alleged trademark infringement
+       li Requested action to address the alleged trademark infringement

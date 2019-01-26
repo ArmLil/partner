@@ -1,0 +1,7 @@
+mixin field(iclass, fieldname, iname, ivalue, type)
+  div.partner
+    div.field
+      i(class=iclass)
+      h2.field #{fieldname}
+    div(class="partner-data")
+      input(class="partner-input" type=type, name=iname, value=ivalue readonly)

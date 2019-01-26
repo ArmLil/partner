@@ -1,0 +1,9 @@
+extends layout.pug
+include components/header.pug
+
+block header
+  +header
+
+block content
+  article#thankyou
+    div Thank you <strong> #{firstName}.</strong> <br> A confirmation email has been sent to <strong> #{email} </strong>.

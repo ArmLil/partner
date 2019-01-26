@@ -1,0 +1,45 @@
+extends layout.pug
+include components/field.pug
+include components/header.pug
+include components/introFields.pug
+
+block header
+  +header
+
+block content
+  article
+    hr
+    div(class='account-popups terms')
+      div(class='partner-intro')
+        h4 Please confirm that you are the person listed below, and that all corresponding information is correct:
+      - if(status === false)
+        form(action='/api/auth/register?redirect=/start/'+hash+'/agreement' method='POST')
+          +introFields
+          +field('hay hay-contact', 'Email', 'email', email, 'email')
+
+          div.partner
+            div.field
+              i(class='hay hay-clipboard')
+              h2.field password
+            div(class='partner-data')
+              input(class='partner-input', type='password', name='password', required, autofocus='' )
+
+          input(type='type', name='userTermsAccepted', value='true' hidden)
+          button(class='btn cta') Register &amp; Continue
+      - if(status === 'registered')
+        +introFields
+        form(action='/api/auth/login?redirect=/start/'+hash+'/agreement' method='POST')
+          +field('hay hay-contact', 'Email', 'email', email, 'email')
+          div.partner
+            div.field
+              i(class='hay hay-clipboard')
+              h2.field password
+            div(class='partner-data')
+              input(class='partner-input', type='password', name='password', required, autofocus='' )
+          button(class='btn cta') Login &amp; Continue
+      - if(status === 'loggedin')
+        +introFields
+        +field('hay hay-contact', 'Email', 'email', email, 'email')
+
+        form(action='/start/'+hash+'/agreement' method='GET')
+          button(class='btn cta') Continue

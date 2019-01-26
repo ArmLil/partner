@@ -1,0 +1,73 @@
+digraph{
+	graph [nodesep=0.5]
+	node [color=lightgrey penwidth=2]
+	ranksep=1
+	size=20	
+	splines="polyline"
+	
+
+	client [shape="star"]
+	
+	root [label="GET /"]
+	app [label="app \n app.js" shape="egg" color="orange" style="filled"]
+	routes [label="routes \n router.js" shape="Mdiamond"]
+
+	node[ shape="note" margin=".2" ]
+	search [label="search \n container"]
+	search_source [label="seach source \n container"]
+	search_source_single [label="seach source single \n container"]
+	about [label="about \n container"]
+
+	node [shape="component"]
+	search_input 
+	infinante
+	header
+	menu
+	enlarge
+	search_filters
+
+	search_source_single_view_blank [label="" shape="none" color="transparent" width=0]
+
+	node [shape="box3d" margin=".2"]
+	search_store 
+	ui_store	
+
+	node [shape="cds" margin=".2"]
+	client -> root -> app -> routes, header
+	routes -> {search, search_source, search_source_single, about}
+
+	search -> search_store [dir="both" color="red"]
+	search_source -> search_store [dir="both" color="green"]
+	search_source_single -> search_store [dir="both" color="blue"]
+
+
+
+	search -> search_view
+	search_source -> search_source_view
+	search_source_single -> search_source_single_view
+	about -> about_view
+
+	node [shape="diamond" margin=".1"]
+	search_actions
+	ui_actions
+
+	search_view -> search_actions -> search_store
+	search_source_view -> search_actions
+	search_source_single_view -> search_actions
+	search_source_single_view -> search_source_single_view_blank  -> search_actions [color="transparent"]
+
+	
+
+	search_filters, infinante -> ui_actions -> ui_store [color="lightgrey"]
+	search, search_source -> ui_store [dir="both" color="purple"]
+	enlarge -> ui_store, search_actions [color="orange"]
+
+	header -> search_input,menu, enlarge
+
+
+	search_view -> infinante, search_filters[color="brown"]
+	search_source_view -> infinante [color="brown"]
+
+	search_input, infinante, search_filters -> search_actions
+
+}

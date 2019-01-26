@@ -1,0 +1,8 @@
+{
+    "isStartedWhen": "running",
+    "healthCheck": "health",
+    "healthCheckType": "http",
+    "memory": 512,
+    "maxContainers": 3,
+    "minContainers": 2
+}

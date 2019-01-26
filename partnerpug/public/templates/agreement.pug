@@ -1,0 +1,60 @@
+extends layout.pug
+include components/header.pug
+
+block header
+  +header
+
+block content
+  article
+    - console.log('contractAcceptedOn=', contractAcceptedOn)
+    - if(!contractAcceptedOn)
+      div(class='account-popups terms')
+        div(class='partner-intro')
+          h4 Please review the document below. It outlines the terms of our agreement, including our affiliate payment structure.
+        div(class='terms') !{contract}
+        div(class='partner-confirm')
+          form(action='/submit/'+hash method='POST')
+            h6.top
+              input(type='checkbox', id='inputId', required='')
+              | By checking this box, I confirm that
+              |
+              strong #{firstName} #{lastName}, #{position} of #{name}
+              |, have read and fully understand Haystack.im’s Source Partner Addendum.
+            h6
+              | As a representative of #{name},
+              | I agree to the stated terms on behalf of my company. I have also reviewed the
+              |
+              a(href='/legal/tos' target='_blank'  style='border-bottom: 1px solid #FF9933;')
+                strong Terms of Service
+              |
+              | ,&nbsp;
+              |
+              a(href='/legal/privacy' target='_blank'  style='border-bottom: 1px solid #FF9933;')
+                strong Privacy Policy
+              |
+              | , and
+              |
+              a(href='/legal/copyright' target='_blank'  style='border-bottom: 1px solid #FF9933;')
+                strong Copyright Policy
+              that apply to all Haystack.im users.
+            button(class='btn cta' id='submit') Submit
+
+    - if(contractAcceptedOn)
+      div(class='account-popups terms')
+        div(class='partner-intro')
+          h4 You have accepted the contract on #{contractAcceptedOn}.
+          | Thank you!
+        div(class='terms') !{contract}
+        nav
+          a(href='/legal/tos' target='_blank'  style='border-bottom: 1px solid #FF9933;')
+            strong Terms of Service
+          |
+          | , &nbsp;
+          |
+          a(href='/legal/privacy' target='_blank'  style='border-bottom: 1px solid #FF9933;')
+            strong Privacy Policy
+          |
+          | , &nbsp;
+          |
+          a(href='/legal/copyright' target='_blank'  style='border-bottom: 1px solid #FF9933;')
+            strong Copyright Policy

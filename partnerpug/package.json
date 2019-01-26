@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "name": "partnernor",
+  "description": "partner.haystack.im partner service",
+  "main": "app.js",
+  "dependencies": {
+    "catbox-redis": "^2.0.2",
+    "hapi": "^16.6.2",
+    "hapi-auth-cookie": "^6.1.1",
+    "inert": "^4.2.1",
+    "lsq": "^1.6.1",
+    "normalize.css": "^7.0.0",
+    "pug": "^2.0.0-rc.4",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "toobusy-js": "^0.5.1",
+    "vision": "^4.1.1"
+  },
+  "scripts": {
+    "start": "npm run build:less && node app.js",
+    "test": "./node_modules/.bin/eslint app/",
+    "build:less": "lessc --clean-css public/less/style.less public/css/style.css"
+  },
+  "author": "Lilit Hovhannisyan",
+  "license": "Dendrite Corporation Copyright 2018",
+  "devDependencies": {
+    "less": "^2.7.3",
+    "less-plugin-clean-css": "^1.5.1"
+  }
+}
